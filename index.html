@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlueSprout</title>
+
+  <!--Fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+
+  <!--Fontawesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!--CSS-->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!--Hero section-->
+  <section id="hero">
+    <div class="hero-section-container">
+      <header>
+        <a class="logo" href="#hero">Save<span>Water.</span></a>
+
+        <nav>
+          <a class="nav-items active" href="#">Home</a>
+          <a class="nav-items" href="index1.html">Play</a>
+
+          <a class="nav-items" href="manualassesment.html">Manual Assessment</a>
+          <a class="nav-items" href="rooftoppicassignment.html">AI Powered Assessment</a>
+          <a class="nav-items" href="watersave.html">Tracker</a>
+          <a class="nav-items" href="ourstory.html">Our story</a>
+
+
+        </nav>
+
+      </header>
+
+      <div class="hero-content">
+
+        <div class="left-section">
+          <div class="left-content-container">
+            <h3>BLUE</h3>
+            <h1>
+              <span>S</span>
+              <span class="color-change">P</span>
+              <span>R</span>
+              <span class="color-change">O</span>
+              <span>U</span>
+              <span class="color-change">T</span>
+
+            </h1>
+            <p>
+               Groundwater is precious, and every rooftop can help replenish it. Our webapp helps you assess how much rainwater you can collect, which recharge structures suit your home, and how much water you can save. Join the movement to conserve water and protect the environment—one rooftop at a time.<br><br><span>Your rooftop can make a difference-<br>check your rainwater potential now.</span>
+            </p>
+            <button class="big-cta-btn" onclick="scrollToSection('features')">Take Action</button>
+
+
+          </div>
+        </div>
+
+        <div class="right-section">
+          <div class="image-wrap">
+            <img src="img/planet.png" alt="planet image">
+          </div>
+        </div>
+
+      </div>
+
+
+      
+
+    </div>
+  </section>
+
+
+
+  <!-- Features Section -->
+<section id="features" class="features">
+  <div class="container">
+      <h2 class="section-title fade-in">Our Features</h2>
+      <div class="features-grid">
+          <div class="feature-card fade-in">
+              <div class="feature-icon">
+                  <i class="fas fa-calculator"></i>
+              </div>
+              <h3>Manual Assessment</h3>
+              <p>Calculate your rooftop's rainwater harvesting potential based on area, rainfall data, and local conditions.</p>
+              <button class="feature-button" onclick="window.location.href='manualassesment.html'">Calculate Now</button>          </div>
+          <div class="feature-card fade-in">
+              <div class="feature-icon">
+                  <i class="fas fa-robot"></i>
+              </div>
+              <h3>AI-Powered Assessment</h3>
+              <p>Upload your rooftop image and get AI-powered recommendations for the best rainwater harvesting system.</p>
+              <button class="feature-button" onclick="window.location.href='rooftoppicassignment.html'">Assess Now</button>
+            </div>
+          <div class="feature-card fade-in">
+              <div class="feature-icon">
+                  <i class="fas fa-chart-line"></i>
+              </div>
+              <h3>Water Savings Tracker</h3>
+              <p>Monitor your water conservation progress and see the environmental impact of your efforts.</p>
+              <button class="feature-button" onclick="window.location.href='watersave.html'">Assess Now</button>
+          </div>
+      </div>
+  </div>
+
+  
+</section>
+
+
+
+<style>
+/* Features Section CSS */
+.features {
+  padding: 100px 0;
+  background: #f8f9ff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 60px;
+  color: #333;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.feature-card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  color: #4fc3f7;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Button styles added without changing existing theme */
+.feature-button {
+  background-color: #4fc3f7;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.feature-button:hover {
+  background-color: #039be5;
+  transform: translateY(-3px);
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+
+
+
+
+
+
+<!-- Statistics Section -->
+<section class="stats">
+  <div class="container">
+      <div class="stats-grid fade-in">
+          <div class="stat-item">
+              <h3>2.1B</h3>
+              <p>People lack access to safely managed drinking water</p>
+          </div>
+          <div class="stat-item">
+              <h3>40%</h3>
+              <p>Of global population affected by water scarcity</p>
+          </div>
+          <div class="stat-item">
+              <h3>80%</h3>
+              <p>Of wastewater flows back to ecosystem without treatment</p>
+          </div>
+          <div class="stat-item">
+              <h3>30%</h3>
+              <p>Water savings possible through rooftop rainwater harvesting</p>
+          </div>
+      </div>
+  </div>
+</section>
+
+<style>
+/* Statistics Section CSS */
+.stats {
+  background: linear-gradient(135deg, #667eea 0%, rgb(0, 225, 225) 100%);
+  color: white;
+  padding: 80px 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  text-align: center;
+}
+
+.stat-item h3 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+  animation: countUp 2s ease-out;
+}
+
+.stat-item p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+@keyframes countUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+
+
+
+
+
+
+
+<!-- Game Section -->
+<section id="game" class="game-section">
+  <div class="container">
+      <div class="game-container">
+          <div class="game-content fade-in">
+              <h2>Learn Through Experience
+              </h2>
+              <p>Millions of people around the world lack access to safe drinking water. Many struggle daily and some even go without, facing severe hardships. Our interactive tool helps you see the impact of water scarcity and understand how rooftop rainwater harvesting can make a real difference.</p>
+          </div>
+
+          <div class="game-preview fade-in">
+              <div class="game-icon">
+                  <i class="fas fa-gamepad"></i>
+              </div>
+              <h3>Interactive Water Game</h3>
+              <p>Challenge yourself and learn about water conservation in a fun, engaging way!</p>
+
+              <!-- Image with overlay button -->
+              <div class="image-container">
+                  <img src="1.jpg" alt="Game Preview" class="game-image">
+                  <button class="play-btn-overlay" onclick="window.open('index1.html', '_blank')">
+                      ▶ Play Game
+                  </button>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+
+<style>
+/* Game Section CSS */
+
+.image-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 600px; /* Adjust image size */
+  margin-top: 20px;
+}
+
+.game-image {
+  width: 100%;
+  border-radius: 15px;
+  display: block;
+  box-shadow: 0 5px 15px rgba(79, 195, 247, 0.3);
+}
+
+/* Button overlay */
+.play-btn-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(79, 195, 247, 0.9);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.play-btn-overlay:hover {
+  background: rgba(41, 182, 246, 0.9);
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+
+
+.game-iframe {
+  width: 100%;
+  height: 800px; /* Adjust based on your game’s resolution */
+  border-radius: 15px;
+  border: 3px dashed #4fc3f7;
+  overflow: auto;
+}
+
+.game-section {
+  padding: 100px 0;
+  background: white;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.game-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.game-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.game-content p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: #666;
+}
+
+.play-btn {
+  background: #4fc3f7;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.play-btn:hover {
+  background: #29b6f6;
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(79, 195, 247, 0.3);
+}
+
+.game-preview {
+  background: #f0f8ff;
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  border: 3px dashed #4fc3f7;
+  transition: transform 0.3s ease;
+}
+
+.game-preview:hover {
+  transform: scale(1.02);
+}
+
+.game-icon {
+  font-size: 4rem;
+  color: #4fc3f7;
+  margin-bottom: 20px;
+  animation: bounce 2s infinite;
+}
+
+.game-preview h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+  }
+  40% {
+      transform: translateY(-10px);
+  }
+  60% {
+      transform: translateY(-5px);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .game-container {
+      grid-template-columns: 1fr;
+      gap: 40px;
+  }
+}
+</style>
+
+<script>
+// Game function - replace with your actual game link
+function openGame() {
+  // Replace this with your actual game URL or function
+  window.open('your-game-url.html', '_blank');
+  // OR redirect to your game page:
+  // window.location.href = 'your-game-page.html';
+}
+</script>
+
+
+
+
+<!-- Tips Section -->
+<section id="tips" class="tips">
+  <div class="container">
+      <h2 class="section-title fade-in">Rooftop Rainwater Harvesting Tips</h2>
+      <div class="tips-grid">
+          <div class="tip-card fade-in">
+              <h4><i class="fas fa-home"></i> Check Your Roof</h4>
+              <p>Ensure your rooftop is suitable for rainwater collection. Keep it clean and free of debris to maximize water quality.</p>
+          </div>
+          <div class="tip-card fade-in">
+              <h4><i class="fas fa-seedling"></i> Maintain Gutters & Pipes</h4>
+              <p>Regularly clean and inspect gutters, downspouts, and storage tanks to prevent blockages and contamination.</p>
+          </div>
+          <div class="tip-card fade-in">
+              <h4><i class="fas fa-shower"></i> Collect Rainwater Efficiently</h4>
+              <p>Install tanks or barrels to capture rainwater from your rooftop. Use first-flush diverters to remove dust and dirt from the initial rainfall.</p>
+          </div>
+          <div class="tip-card fade-in">
+              <h4><i class="fas fa-recycle"></i> Use Water Wisely</h4>
+              <p>Use collected rainwater for gardening, flushing toilets, cleaning, or other non-drinking purposes.</p>
+          </div>
+          <div class="tip-card fade-in">
+              <h4><i class="fas fa-wrench"></i> Recharge Groundwater</h4>
+              <p>If space allows, direct some rainwater to recharge pits, trenches, or soakaways to help replenish groundwater.</p>
+          </div>
+          <div class="tip-card fade-in">
+              <h4><i class="fas fa-lightbulb"></i> Monitor & Spread Awareness</h4>
+              <p>Check water storage levels, clean tanks periodically, repair leaks immediately, and encourage your community to adopt rainwater harvesting.</p>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+<style>
+/* Tips Section CSS */
+.tips {
+  background: #f8f9ff;
+  padding: 100px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 60px;
+  color: #333;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.tip-card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  border-left: 5px solid #4fc3f7;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.tip-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  border-left-width: 8px;
+}
+
+.tip-card h4 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tip-card h4 i {
+  color: #4fc3f7;
+  font-size: 1.2rem;
+}
+
+.tip-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Add staggered animation delay */
+.tip-card:nth-child(1) { transition-delay: 0.1s; }
+.tip-card:nth-child(2) { transition-delay: 0.2s; }
+.tip-card:nth-child(3) { transition-delay: 0.3s; }
+.tip-card:nth-child(4) { transition-delay: 0.4s; }
+.tip-card:nth-child(5) { transition-delay: 0.5s; }
+.tip-card:nth-child(6) { transition-delay: 0.6s; }
+</style> 
+
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+  <div class="container">
+      <div class="footer-content">
+          <div class="footer-section">
+              <h3>SaveWater</h3>
+              <p>Empowering communities to conserve rainwater and manage rooftop water resources effectively. Every rooftop can contribute to a sustainable water future.</p>
+              <div class="social-links">
+                  <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                  <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                  <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                  <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              </div>
+          </div>
+          
+          <div class="footer-section">
+              <h3>Quick Links</h3>
+              <ul>
+                  <li><a href="#hero">Home</a></li>
+                  <li><a href="#features">Features</a></li>
+                  <li><a href="manualassesment.html">Manual Assessment</a></li>
+                  <li><a href="rooftoppicassignment.html">AI Assessment</a></li>
+                  <li><a href="#game">Play our game</a></li>
+              </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h3>Resources</h3>
+            <ul>
+                <li><a href="1.pdf" target="_blank">Rooftop Rainwater Guide</a></li>
+                <li><a href="2.pdf" target="_blank">Rainwater Harvesting Manual</a></li>
+                <li><a href="https://www.pib.gov.in/PressReleaseIframePage.aspx?PRID=1914351" target="_blank">Government Schemes</a></li>
+                <li><a href="https://neer.co.in/rainwater-harvesting-success-stories-from-around-the-globe/" target="_blank">Success Stories</a></li>
+            </ul>
+        </div>
+        
+          
+          <div class="footer-section">
+              <h3>Support</h3>
+              <ul>
+                  <li><a href="contact.html">Contact Us</a></li>
+                  <li><a href="faq.html">FAQs</a></li>
+                  <li><a href="pp.html">Privacy Policy</a></li>
+              </ul>
+          </div>
+      </div>
+      
+      <div class="footer-bottom">
+          <p>&copy; 2025 BlueSprout. All rights reserved.</p>
+      </div>
+  </div>
+</footer>
+
+
+<style>
+/* Footer CSS */
+footer {
+  background: #1a1a2e;
+  color: white;
+  padding: 60px 0 20px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #4fc3f7;
+}
+
+.footer-section p {
+  line-height: 1.6;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: inline-block;
+  position: relative;
+}
+
+.footer-section ul li a:hover {
+  color: #4fc3f7;
+  transform: translateX(5px);
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #4fc3f7;
+  color: white;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: translateY(-3px);
+  background: #29b6f6;
+  box-shadow: 0 5px 15px rgba(79, 195, 247, 0.4);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 30px;
+  border-top: 1px solid #333;
+  color: #ccc;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+  .footer-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+  }
+  
+  .social-links {
+      justify-content: center;
+  }
+}
+</style>
+
+
+<script>
+
+
+
+// JavaScript for scroll animations and interactions
+
+// Smooth scrolling function
+function scrollToSection(sectionId) {
+    document.getElementById(sectionId).scrollIntoView({
+        behavior: 'smooth'
+    });
+}
+
+// Scroll animations
+function animateOnScroll() {
+    const elements = document.querySelectorAll('.fade-in');
+    elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add('visible');
+        }
+    });
+}
+
+// Initialize animations on page load and scroll
+window.addEventListener('scroll', animateOnScroll);
+window.addEventListener('load', animateOnScroll);
+
+// Update active nav item on scroll
+window.addEventListener('scroll', () => {
+    const sections = ['hero', 'features', 'game', 'tips'];
+    const navItems = document.querySelectorAll('.nav-items');
+    
+    let current = '';
+    sections.forEach(section => {
+        const element = document.getElementById(section);
+        if (element) {
+            const rect = element.getBoundingClientRect();
+            if (rect.top <= 100) {
+                current = section;
+            }
+        }
+    });
+
+    navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href') === `#${current}`) {
+            item.classList.add('active');
+        }
+    });
+});
+
+// Number animation for statistics
+function animateNumbers() {
+    const statNumbers = document.querySelectorAll('.stat-item h3');
+    
+    statNumbers.forEach(number => {
+        const finalNumber = number.textContent;
+        const isPercentage = finalNumber.includes('%');
+        const isBillion = finalNumber.includes('B');
+        
+        let targetNumber = parseFloat(finalNumber);
+        if (isBillion) targetNumber = targetNumber * 1000; // Convert to millions for animation
+        
+        let currentNumber = 0;
+        const increment = targetNumber / 50; // 50 steps
+        
+        const timer = setInterval(() => {
+            currentNumber += increment;
+            if (currentNumber >= targetNumber) {
+                currentNumber = targetNumber;
+                clearInterval(timer);
+            }
+            
+            let displayNumber = Math.floor(currentNumber);
+            if (isBillion) {
+                displayNumber = (displayNumber / 1000).toFixed(1) + 'B';
+            } else if (isPercentage) {
+                displayNumber = displayNumber + '%';
+            }
+            
+            number.textContent = displayNumber;
+        }, 50);
+    });
+}
+
+// Trigger number animation when stats section is visible
+function checkStatsVisible() {
+    const statsSection = document.querySelector('.stats');
+    if (statsSection) {
+        const rect = statsSection.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            animateNumbers();
+            window.removeEventListener('scroll', checkStatsVisible);
+        }
+    }
+}
+
+window.addEventListener('scroll', checkStatsVisible);
+
+// Game function - replace with your actual game
+function openGame() {
+    // Replace this with your actual game URL or function
+    alert('Opening Water Conservation Game! 🎮💧\n\nReplace this alert with your actual game link.');
+    
+    // Examples of what you can do:
+    // window.open('your-game-url.html', '_blank');
+    // window.location.href = 'your-game-page.html';
+    // Or embed the game in a modal, etc.
+}
+
+</script>
+
+
+
+
+
+
+  
+</body>
+
+
+
+</html>

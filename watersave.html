@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Water Savings Tracker</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  body {
+    margin:0;
+    font-family:'Fredoka', sans-serif;
+    background:#f5f7fa;
+    color:#333;
+  }
+  .container {
+    max-width:1200px;
+    margin:auto;
+    padding:50px 20px;
+  }
+  h2.section-title {
+    text-align:center;
+    font-size:3rem;
+    margin-bottom:20px;
+    color:#0077cc;
+  }
+  p.intro {
+    text-align:center;
+    font-size:1.2rem;
+    margin-bottom:40px;
+    color:#555;
+  }
+
+  /* Tracker Cards */
+  .tracker-cards {
+    display:flex;
+    flex-wrap:wrap;
+    gap:30px;
+    justify-content:center;
+    margin-bottom:50px;
+  }
+  .tracker-card {
+    background:rgba(255,255,255,0.9);
+    border-radius:20px;
+    padding:30px;
+    min-width:220px;
+    flex:1 1 220px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    transition:0.3s;
+  }
+  .tracker-card:hover {
+    transform:translateY(-5px);
+    box-shadow:0 12px 30px rgba(0,0,0,0.15);
+  }
+  .tracker-card h3 {
+    color:#0077cc;
+    font-size:1.5rem;
+    margin-bottom:15px;
+  }
+  .tracker-card p {
+    font-size:1.5rem;
+    font-weight:700;
+    color:#00aaff;
+  }
+
+  /* Input Section */
+  .input-section {
+    background:rgba(255,255,255,0.9);
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    margin-bottom:50px;
+    max-width:700px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .input-section h3 { color:#0077cc; margin-bottom:20px; }
+  .input-section label { display:block; margin:10px 0 5px; font-weight:600; }
+  .input-section input {
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    margin-bottom:15px;
+    font-size:1rem;
+  }
+  .input-section button {
+    background:#0077cc;
+    color:#fff;
+    border:none;
+    padding:12px 25px;
+    border-radius:10px;
+    font-size:1rem;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+  }
+  .input-section button:hover {
+    background:#00aaff;
+  }
+
+  /* Chart Section */
+  .chart-container {
+    background:rgba(255,255,255,0.9);
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    margin-bottom:50px;
+  }
+  .chart-container h3 { color:#0077cc; text-align:center; margin-bottom:20px; }
+
+  /* Assessment Section */
+  .assessment {
+    display:flex;
+    flex-wrap:wrap;
+    gap:25px;
+    justify-content:center;
+  }
+  .assessment-card {
+    background:rgba(255,255,255,0.9);
+    padding:25px;
+    border-radius:20px;
+    flex:1 1 220px;
+    min-width:220px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    transition:0.3s;
+  }
+  .assessment-card h4 { color:#0077cc; margin-bottom:15px; }
+  .assessment-card p { color:#00aaff; font-weight:700; font-size:1.2rem; }
+
+  /* Tips Section */
+  .tips {
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    justify-content:center;
+    margin-top:50px;
+  }
+  .tip-card {
+    background:rgba(255,255,255,0.9);
+    padding:20px;
+    border-radius:15px;
+    flex:1 1 200px;
+    min-width:200px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    transition:0.3s;
+  }
+  .tip-card:hover {
+    transform:translateY(-5px);
+    box-shadow:0 12px 30px rgba(0,0,0,0.15);
+  }
+  .tip-card h4 { color:#0077cc; margin-bottom:10px; }
+  .tip-card p { color:#555; font-size:1rem; }
+
+  @media(max-width:768px){
+    .tracker-cards, .assessment, .tips { flex-direction:column; align-items:center; }
+    h2.section-title{font-size:2.2rem;}
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2 class="section-title">Water Savings Tracker</h2>
+  <p class="intro">Track your water conservation impact, see CO₂ reduction, cost savings, and suggested water solutions for your home.</p>
+
+  <!-- Tracker Cards -->
+  <div class="tracker-cards">
+    <div class="tracker-card"><h3>Water Saved</h3><p><span id="waterSaved">0</span> L</p></div>
+    <div class="tracker-card"><h3>People Served</h3><p><span id="peopleServed">0</span></p></div>
+    <div class="tracker-card"><h3>CO₂ Reduction</h3><p><span id="co2Reduced">0</span> kg</p></div>
+    <div class="tracker-card"><h3>Cost Saved</h3><p>₹<span id="costSaved">0</span></p></div>
+  </div>
+
+  <!-- Input Section -->
+  <div class="input-section">
+    <h3>Enter Daily Water Savings</h3>
+    <label>Shorter Showers (minutes/day)</label>
+    <input type="number" id="showers" placeholder="e.g., 5">
+    <label>Dishwasher/Handwashing (liters/day)</label>
+    <input type="number" id="dishwasher" placeholder="e.g., 10">
+    <label>Garden/Outdoor Use (liters/day)</label>
+    <input type="number" id="garden" placeholder="e.g., 15">
+    <button onclick="calculateSavings()">Update Tracker</button>
+  </div>
+
+  <!-- Chart Section -->
+  <div class="chart-container">
+    <h3>Water Saved Distribution</h3>
+    <canvas id="waterChart" height="150"></canvas>
+  </div>
+
+  <!-- Assessment Section -->
+  <h3 style="text-align:center; color:#0077cc; margin-bottom:25px;">Your Assessment Summary</h3>
+  <div class="assessment">
+    <div class="assessment-card"><h4>Suggested RTRWH</h4><p id="rtrwhType">-</p></div>
+    <div class="assessment-card"><h4>Principal Aquifer</h4><p id="aquiferInfo">-</p></div>
+    <div class="assessment-card"><h4>Groundwater Depth</h4><p id="groundwaterDepth">-</p></div>
+  </div>
+
+  <!-- Tips Section -->
+  <h3 style="text-align:center; color:#0077cc; margin:50px 0 25px;">Quick Tips</h3>
+  <div class="tips">
+    <div class="tip-card"><h4>Fix Leaks</h4><p>Small leaks waste hundreds of liters per month.</p></div>
+    <div class="tip-card"><h4>Use Drip Irrigation</h4><p>Efficient watering reduces wastage.</p></div>
+    <div class="tip-card"><h4>Reuse Greywater</h4><p>Collect sink/shower water for plants.</p></div>
+    <div class="tip-card"><h4>Shorter Showers</h4><p>Cut 5-10 mins daily to save water.</p></div>
+  </div>
+</div>
+
+<script>
+let waterSaved=0, peopleServed=0, co2Reduced=0, costSaved=0;
+
+function calculateSavings(){
+  const showers=parseFloat(document.getElementById('showers').value)||0;
+  const dishwasher=parseFloat(document.getElementById('dishwasher').value)||0;
+  const garden=parseFloat(document.getElementById('garden').value)||0;
+
+  waterSaved=showers*10+dishwasher+garden;
+  peopleServed=Math.floor(waterSaved/150);
+  co2Reduced=Math.round(waterSaved*0.01);
+  costSaved=Math.round(waterSaved*0.002);
+
+  document.getElementById('waterSaved').innerText=waterSaved;
+  document.getElementById('peopleServed').innerText=peopleServed;
+  document.getElementById('co2Reduced').innerText=co2Reduced;
+  document.getElementById('costSaved').innerText = '₹' + costSaved;
+
+  updateChart([showers*10,dishwasher,garden]);
+  updateAssessment();
+}
+
+function updateAssessment(){
+  document.getElementById('rtrwhType').innerText="Rooftop Storage Tank + Recharge Pit";
+  document.getElementById('aquiferInfo').innerText="Shallow Unconfined Aquifer";
+  document.getElementById('groundwaterDepth').innerText="12 meters";
+}
+
+const ctx=document.getElementById('waterChart').getContext('2d');
+let waterChart=new Chart(ctx,{
+  type:'doughnut',
+  data:{labels:['Showers','Dishwasher','Garden'],datasets:[{label:'Water Saved (L)',data:[0,0,0],backgroundColor:['#0077cc','#00aaff','#00d4ff']}]},
+  options:{responsive:true,plugins:{legend:{position:'bottom',labels:{color:'#333'}}}}
+});
+
+function updateChart(dataArray){ waterChart.data.datasets[0].data=dataArray; waterChart.update(); }
+updateAssessment();
+</script>
+</body>
+</html>

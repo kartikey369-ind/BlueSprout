@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AquaHarvest - Roof Calculator</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Poppins', sans-serif; background: linear-gradient(135deg,#667eea,#764ba2); color: #333; min-height: 100vh; display: flex; justify-content: center; align-items: center; }
+  .card { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-radius: 20px; padding: 30px; width: 90%; max-width: 700px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+  h1 { text-align: center; font-size: 2.5rem; color: #0288d1; margin-bottom: 10px; }
+  p { text-align: center; font-size: 1rem; margin-bottom: 20px; color: #555; }
+  input[type="file"] { width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 10px; border: 2px solid #e1e5e9; }
+  canvas { border: 2px solid #0288d1; width: 100%; height: auto; display: block; margin-bottom: 15px; }
+  button { width: 100%; padding: 15px; border: none; border-radius: 10px; background: linear-gradient(135deg,#00bcd4,#0288d1); color: white; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.3s; }
+  button:hover { transform: scale(1.05); }
+  .recommendations { margin-top: 20px; }
+  .rec-item { background: #e0f7fa; padding: 12px; border-left: 4px solid #0288d1; border-radius: 8px; margin-bottom: 8px; font-size: 0.95rem; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>Roof Area Calculator</h1>
+  <p>Upload your roof image and click on points to outline the roof.</p>
+  
+  <input type="file" id="roofImage" accept="image/*">
+  <canvas id="roofCanvas" width="600" height="400"></canvas>
+  <button id="calcArea">Calculate Area & Get Recommendations</button>
+  
+  <div class="recommendations" id="recs"></div>
+</div>
+
+<script>
+  const canvas = document.getElementById('roofCanvas');
+  const ctx = canvas.getContext('2d');
+  let img = new Image();
+  let points = [];
+
+  document.getElementById('roofImage').addEventListener('change', e=>{
+    const file = e.target.files[0];
+    if(file){ img.src = URL.createObjectURL(file); }
+  });
+
+  img.onload = () => {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    points = [];
+  };
+
+  canvas.addEventListener('click', e=>{
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    points.push({x,y});
+    drawPoints();
+  });
+
+  function drawPoints(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.drawImage(img, 0,0,canvas.width,canvas.height);
+    if(points.length===0) return;
+    ctx.beginPath();
+    ctx.moveTo(points[0].x, points[0].y);
+    points.slice(1).forEach(p=>ctx.lineTo(p.x,p.y));
+    ctx.strokeStyle='red'; ctx.lineWidth=2; ctx.stroke();
+    points.forEach(p=>{
+      ctx.beginPath(); ctx.arc(p.x,p.y,4,0,2*Math.PI); ctx.fillStyle='blue'; ctx.fill();
+    });
+  }
+
+  function calculateArea(){
+    let area=0; const n=points.length;
+    for(let i=0;i<n;i++){ const j=(i+1)%n; area+=points[i].x*points[j].y-points[j].x*points[i].y; }
+    return Math.abs(area/2);
+  }
+
+  function generateRecommendations(roofArea){
+    const recs=[]; const areaM2=roofArea*0.1*0.1; 
+    const tankSize=areaM2*0.8*0.2;
+    recs.push(`Estimated roof area: ${areaM2.toFixed(2)} m²`);
+    recs.push(`Recommended storage tank: ${Math.round(tankSize)} m³`);
+    if(areaM2>=25){ recs.push("Build recharge pit for groundwater"); }
+    else if(areaM2>=10){ recs.push("Install recharge well"); }
+    else{ recs.push("Use rooftop storage due to limited space"); }
+    recs.push("Best installation time: April-May");
+    recs.push("Maintenance: ₹200-500/month");
+    return recs;
+  }
+
+  document.getElementById('calcArea').addEventListener('click', ()=>{
+    if(points.length<3){ alert("Select at least 3 points to form roof"); return; }
+    const area = calculateArea();
+    const recs = generateRecommendations(area);
+    document.getElementById('recs').innerHTML = recs.map(r=>`<div class="rec-item">${r}</div>`).join('');
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<style>
+  body { font-family: 'Fredoka', sans-serif; margin:0; background: #f3f7ff; color: #333; }
+  .container { max-width: 800px; margin: 50px auto; padding: 20px; background: #fff; border-radius: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+  h2 { text-align: center; color: #4fc3f7; margin-bottom: 10px; }
+  p.intro { text-align: center; margin-bottom: 30px; font-size: 1.1rem; color: #555; }
+
+  form { display: flex; flex-direction: column; gap: 15px; }
+  label { font-weight: 600; color: #333; }
+  input, textarea { padding: 12px; border-radius: 10px; border: 1px solid #ccc; font-size: 1rem; }
+  textarea { resize: vertical; min-height: 120px; }
+  button { background: #4fc3f7; color: white; border: none; padding: 12px; border-radius: 10px; font-size: 1rem; cursor: pointer; transition: 0.3s; }
+  button:hover { background: #29b6f6; }
+
+  .info { display: flex; justify-content: space-around; margin-top: 30px; flex-wrap: wrap; gap: 20px; }
+  .info div { text-align: center; color: #555; }
+  .info i { font-size: 2rem; color: #4fc3f7; margin-bottom: 10px; }
+
+  @media(max-width:600px){ .info { flex-direction: column; align-items: center; } }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Contact Us</h2>
+  <p class="intro">Have questions or suggestions? We'd love to hear from you! Fill the form below and we'll get back to you soon.</p>
+
+  <form id="contactForm">
+    <label for="name">Name</label>
+    <input type="text" id="name" placeholder="Your Name" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" placeholder="you@example.com" required>
+
+    <label for="message">Message</label>
+    <textarea id="message" placeholder="Write your message here..." required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+
+  <div class="info">
+    <div><i class="fas fa-phone"></i><p>+91 7601004915</p></div>
+    <div><i class="fas fa-envelope"></i><p>kartikeykvk369@gmail.com</p></div>
+    <div><i class="fas fa-map-marker-alt"></i><p>Vizag, India</p></div>
+  </div>
+</div>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  if(!name || !email || !message){
+    alert("Please fill all fields.");
+    return;
+  }
+
+  alert("Thank you, " + name + "! Your message has been sent successfully.");
+  this.reset();
+});
+</script>
+
+</body>
+</html>
